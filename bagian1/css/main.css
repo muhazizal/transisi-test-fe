@@ -35,6 +35,7 @@ header .sidebar__icon {
           flex-direction: column;
   padding: 1rem;
   margin-top: 1.5rem;
+  cursor: pointer;
 }
 
 header .sidebar__icon .firstline {
@@ -181,24 +182,25 @@ main .project__category .list {
 main .card {
   width: 33%;
   margin-bottom: 1.8rem;
+  cursor: pointer;
 }
 
 main .card #card--active {
-  border: 2px solid #252a41;
+  border: 0.2rem solid #252a41;
   border-radius: 1.5rem;
   width: 9rem;
   height: 9rem;
-  padding-top: 5px;
-  padding-left: 5px;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 main .card #card--active--CP {
-  border: 2px solid #43a3b3;
+  border: 0.2rem solid #43a3b3;
   border-radius: 1.5rem;
   width: 9rem;
   height: 9rem;
-  padding-top: 5px;
-  padding-left: 5px;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 main .card__header {
@@ -259,6 +261,7 @@ main .card__subheader {
   font-weight: 400;
   color: #9a9fb6;
   margin-top: 0.5rem;
+  margin-left: 0.75rem;
 }
 
 main .task {
@@ -269,7 +272,200 @@ main .task {
   margin: 1.5rem;
   padding: 3.6rem;
   width: calc(50vw - 1.5rem);
-  height: calc(100vh - 3rem);
+  min-height: calc(100vh - 3rem);
   border-radius: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .task__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .task__heading__header {
+  width: 65%;
+}
+
+main .task__heading__header p {
+  margin-top: 1.4rem;
+  font-size: 1.4rem;
+  color: #252a41;
+}
+
+main .task__heading__people {
+  width: 35%;
+  text-align: right;
+  position: relative;
+}
+
+main .task__heading__people .profile {
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 3rem;
+  height: 3rem;
+  border: 0.1rem solid white;
+  border-radius: 100%;
+  position: absolute;
+}
+
+main .task__heading__people .profile#people-1 {
+  background-image: url("/bagian1/assets/people-1.jpg");
+  z-index: 100;
+  right: 8rem;
+}
+
+main .task__heading__people .profile#people-2 {
+  background-image: url("/bagian1/assets/people-2.jpg");
+  z-index: 50;
+  right: 6rem;
+}
+
+main .task__heading__people .profile#people-3 {
+  background-image: url("/bagian1/assets/people-3.jpg");
+  z-index: 1;
+  right: 4rem;
+}
+
+main .task__heading__people #add-people {
+  color: #bbbbbb;
+  font-size: 2.8rem;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+main .task__today {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 5rem;
+  border-bottom: 0.1rem solid #eeeeee;
+  padding-bottom: 1rem;
+}
+
+main .task__today h3 {
+  width: 90%;
+}
+
+main .task__today .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 5rem;
+  height: 2.5rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+main .task__today .option .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 100%;
+  background-color: #bbbbbb;
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+main .task .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+main .task .list .icons--approved {
+  background-color: #35d7d5;
+  border-radius: 100%;
+  font-size: 1.8rem;
+  padding: 0.5rem;
+  margin-right: 1.5rem;
+  color: white;
+}
+
+main .task .list .icons--normal {
+  border-radius: 100%;
+  border: 2px solid #bbbbbb;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0.5rem;
+  margin-right: 1.5rem;
+  color: white;
+}
+
+main .task .list p {
+  margin-top: 0.5rem;
+  color: #252a41;
+  font-size: 1.2rem;
+}
+
+main .task .list__status {
+  width: 10rem;
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 1.5rem;
+}
+
+main .task .list__status#approved {
+  background-color: #e0f5f5;
+}
+
+main .task .list__status#approved p {
+  color: #35d7d5;
+}
+
+main .task .list__status#progress {
+  background-color: #e4effe;
+}
+
+main .task .list__status#progress p {
+  color: #79b2f7;
+}
+
+main .task .list__status#review {
+  background-color: #fdeee8;
+}
+
+main .task .list__status#review p {
+  color: #d2a798;
+}
+
+main .task .list__status#waiting {
+  background-color: #eceef0;
+}
+
+main .task .list__status#waiting p {
+  color: #939ba4;
+}
+
+main .task #addTask {
+  margin: 5rem -1rem -1rem auto;
+  height: 6rem;
+  width: 6rem;
+  border: none;
+  border-radius: 1.6rem;
+  background-color: #894ec6;
+  color: white;
+  -webkit-box-shadow: -1rem 1rem 2.5rem 0px rgba(137, 78, 198, 0.4);
+          box-shadow: -1rem 1rem 2.5rem 0px rgba(137, 78, 198, 0.4);
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

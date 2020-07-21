@@ -31,6 +31,7 @@ header {
 		flex-direction: column;
 		padding: 1rem;
 		margin-top: 1.5rem;
+		cursor: pointer;
 
 		.firstline {
 			width: 0.9rem;
@@ -143,23 +144,24 @@ main {
 	.card {
 		width: 33%;
 		margin-bottom: 1.8rem;
+		cursor: pointer;
 
 		#card--active {
-			border: 2px solid $main-color;
+			border: 0.2rem solid $main-color;
 			border-radius: 1.5rem;
 			width: 9rem;
 			height: 9rem;
-			padding-top: 5px;
-			padding-left: 5px;
+			padding-top: 0.5rem;
+			padding-left: 0.5rem;
 		}
 
 		#card--active--CP {
-			border: 2px solid #43a3b3;
+			border: 0.2rem solid #43a3b3;
 			border-radius: 1.5rem;
 			width: 9rem;
 			height: 9rem;
-			padding-top: 5px;
-			padding-left: 5px;
+			padding-top: 0.5rem;
+			padding-left: 0.5rem;
 		}
 
 		&__header {
@@ -215,6 +217,7 @@ main {
 			font-weight: 400;
 			color: $secondary-color-2;
 			margin-top: 0.5rem;
+			margin-left: 0.75rem;
 		}
 	}
 	// End card - Left column
@@ -228,7 +231,186 @@ main {
 		margin: 1.5rem;
 		padding: 3.6rem;
 		width: calc(50vw - 1.5rem);
-		height: calc(100vh - 3rem);
+		min-height: calc(100vh - 3rem);
 		border-radius: 1.6rem;
+
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+
+		// Task heading
+		&__heading {
+			display: flex;
+			flex-wrap: wrap;
+
+			&__header {
+				width: 65%;
+
+				p {
+					margin-top: 1.4rem;
+					font-size: 1.4rem;
+					color: $main-color;
+				}
+			}
+
+			&__people {
+				width: 35%;
+				text-align: right;
+				position: relative;
+
+				.profile {
+					display: inline-block;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					width: 3rem;
+					height: 3rem;
+					border: 0.1rem solid white;
+					border-radius: 100%;
+					position: absolute;
+				}
+
+				.profile#people-1 {
+					background-image: url('/bagian1/assets/people-1.jpg');
+					z-index: 100;
+					right: 8rem;
+				}
+
+				.profile#people-2 {
+					background-image: url('/bagian1/assets/people-2.jpg');
+					z-index: 50;
+					right: 6rem;
+				}
+
+				.profile#people-3 {
+					background-image: url('/bagian1/assets/people-3.jpg');
+					z-index: 1;
+					right: 4rem;
+				}
+
+				#add-people {
+					color: $dark-grey;
+					font-size: 2.8rem;
+					vertical-align: middle;
+					cursor: pointer;
+				}
+			}
+		}
+
+		// Task today
+		&__today {
+			display: flex;
+			margin-top: 5rem;
+			border-bottom: 0.1rem solid $light-grey;
+			padding-bottom: 1rem;
+
+			h3 {
+				width: 90%;
+			}
+
+			.option {
+				display: flex;
+				justify-content: flex-end;
+				width: 5rem;
+				height: 2.5rem;
+				margin-left: 2rem;
+				cursor: pointer;
+
+				.dot {
+					width: 0.5rem;
+					height: 0.5rem;
+					border-radius: 100%;
+					background-color: $dark-grey;
+					margin-top: 1.5rem;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+
+		// Task list today
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 1.5rem;
+
+			.icons--approved {
+				background-color: $approved;
+				border-radius: 100%;
+				font-size: 1.8rem;
+				padding: 0.5rem;
+				margin-right: 1.5rem;
+				color: white;
+			}
+
+			.icons--normal {
+				border-radius: 100%;
+				border: 2px solid $dark-grey;
+				width: 2.8rem;
+				height: 2.8rem;
+				padding: 0.5rem;
+				margin-right: 1.5rem;
+				color: white;
+			}
+
+			p {
+				margin-top: 0.5rem;
+				color: $main-color;
+				font-size: 1.2rem;
+			}
+
+			&__status {
+				width: 10rem;
+				margin-left: auto;
+				font-size: 1.2rem;
+				font-weight: bold;
+				text-align: center;
+				border-radius: 1.5rem;
+
+				&#approved {
+					background-color: $approved-bg;
+
+					p {
+						color: $approved;
+					}
+				}
+
+				&#progress {
+					background-color: $progress-bg;
+
+					p {
+						color: $progress;
+					}
+				}
+
+				&#review {
+					background-color: $review-bg;
+
+					p {
+						color: $review;
+					}
+				}
+
+				&#waiting {
+					background-color: $waiting-bg;
+
+					p {
+						color: $waiting;
+					}
+				}
+			}
+		}
+
+		// Button for add task
+		#addTask {
+			margin: 5rem -1rem -1rem auto;
+			height: 6rem;
+			width: 6rem;
+			border: none;
+			border-radius: 1.6rem;
+			background-color: $btn-color;
+			color: white;
+			box-shadow: -1rem 1rem 2.5rem 0px rgba(137, 78, 198, 0.4);
+			cursor: pointer;
+		}
 	}
 }

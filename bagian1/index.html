@@ -49,9 +49,11 @@
 					</form>
 				</div>
 
+				<!-- Project category -->
 				<div class="project__category">
 					<h3>Projects <span>(13)</span></h3>
 					<div class="list">
+						<!-- Card list -->
 						<div class="card">
 							<div id="card--active">
 								<div class="card__header" id="GH"><span>GH</span></div>
@@ -93,6 +95,7 @@
 								<div class="card__header"><span>8+</span></div>
 							</div>
 						</div>
+						<!-- End card list -->
 					</div>
 				</div>
 			</section>
@@ -100,11 +103,84 @@
 			<!-- Right column - Project detail -->
 			<section class="task">
 				<div class="task__heading">
-					<h2>Cyber Punk</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do euismod tempor incididunt.
-					</p>
+					<!-- Task heading -->
+					<div class="task__heading__header">
+						<h2>Cyber Punk</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do euismod tempor incididunt.
+						</p>
+					</div>
+
+					<!-- People profile -->
+					<div class="task__heading__people">
+						<div class="profile" id="people-1"></div>
+						<div class="profile" id="people-2"></div>
+						<div class="profile" id="people-3"></div>
+						<span class="material-icons" id="add-people">add_circle_outline</span>
+					</div>
 				</div>
+
+				<!-- Task list today -->
+				<div class="task__today">
+					<h3>Today</h3>
+					<div class="option">
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+					</div>
+				</div>
+
+				<div class="task__list__today">
+					<!-- Task list -->
+					<div class="list">
+						<span class="material-icons icons--approved">done</span>
+						<p>Create initial layout homepage</p>
+						<div class="list__status" id="approved">
+							<p>Approved</p>
+						</div>
+					</div>
+					<div class="list">
+						<span class="material-icons icons--approved">done</span>
+						<p>Fixing icons with transparant background</p>
+						<div class="list__status" id="progress">
+							<p>In Progress</p>
+						</div>
+					</div>
+					<div class="list">
+						<span class="material-icons icons--approved">done</span>
+						<p>Fixing icons with transparant background</p>
+						<div class="list__status" id="progress">
+							<p>In Progress</p>
+						</div>
+					</div>
+					<div class="list">
+						<span class="material-icons icons--approved">done</span>
+						<p>Create initial layout homepage</p>
+						<div class="list__status" id="progress">
+							<p>In Progress</p>
+						</div>
+					</div>
+					<div class="list">
+						<span class="material-icons icons--normal"></span>
+						<p>Discussion regarding workflow improvement</p>
+						<div class="list__status" id="review">
+							<p>In Review</p>
+						</div>
+					</div>
+					<div class="list">
+						<span class="material-icons icons--normal"></span>
+						<p>Create quotation for app redesign project</p>
+						<div class="list__status" id="waiting">
+							<p>Waiting</p>
+						</div>
+					</div>
+					<!-- End task list -->
+				</div>
+
+				<!-- Button add new task -->
+				<button id="addTask">
+					<span class="material-icons">add</span>
+				</button>
 			</section>
 		</main>
 	</body>
