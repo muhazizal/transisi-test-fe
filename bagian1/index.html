@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="./css/main.css" />
+		<!-- Google Font -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Material Design Icon -->
+		<link
+			href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<header>
+			<!-- Sidebar icon  -->
+			<nav>
+				<div class="sidebar__icon">
+					<div class="sidebar__icon__firstline"></div>
+					<div class="sidebar__icon__secondline"></div>
+					<div class="sidebar__icon__thirdline"></div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<!-- Left column - Project list -->
+			<section class="projects">
+				<h1 class="projects__header">Hi Samantha</h1>
+				<p class="projects__subheader">Welcome back to workspace, we missed You!</p>
+
+				<!-- Search Box -->
+				<form action="#">
+					<div class="project__search">
+						<span class="material-icons">search</span>
+						<input type="search" id="search" name="search" placeholder="Search Task or Project" />
+					</div>
+				</form>
+
+				<div class="project__list"></div>
+			</section>
+
+			<!-- Right column - Project detail -->
+			<section class="right-column"></section>
+		</main>
+	</body>
+</html>
