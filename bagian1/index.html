@@ -3,13 +3,16 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<!-- CSS -->
 		<link rel="stylesheet" href="./css/main.css" />
+
 		<!-- Google Font -->
 		<link
 			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
 			rel="stylesheet"
 		/>
+
 		<!-- Material Design Icon -->
 		<link
 			href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
@@ -17,6 +20,7 @@
 		/>
 		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
 		<title>Dashboard</title>
 	</head>
 	<body>
@@ -33,23 +37,32 @@
 
 		<main>
 			<!-- Left column - Project list -->
-			<section class="projects">
-				<h1 class="projects__header">Hi Samantha</h1>
-				<p class="projects__subheader">Welcome back to workspace, we missed You!</p>
+			<section class="project">
+				<h2 class="project__header">Hi Samantha</h2>
+				<p class="project__subheader">Welcome back to workspace, we missed You!</p>
 
 				<!-- Search Box -->
-				<form action="#">
-					<div class="project__search">
+				<div class="project__search">
+					<form action="#">
 						<span class="material-icons">search</span>
-						<input type="search" id="search" name="search" placeholder="Search Task or Project" />
-					</div>
-				</form>
+						<input type="search" id="search" name="search" placeholder="Search Task or Project..." />
+					</form>
+				</div>
 
-				<div class="project__list"></div>
+				<div class="project__list">
+					<div class="project__list__card"></div>
+					<div class="project__list__card"></div>
+					<div class="project__list__card"></div>
+					<div class="project__list__card"></div>
+					<div class="project__list__card"></div>
+					<div class="project__list__card"></div>
+				</div>
 			</section>
 
 			<!-- Right column - Project detail -->
-			<section class="right-column"></section>
+			<section class="task">
+				<h2>Cyber Punk</h2>
+			</section>
 		</main>
 	</body>
 </html>
