@@ -1,5 +1,7 @@
 @import 'variable';
-@import 'mixins': root {
+@import 'mixins';
+
+:root {
 	font-size: 62.5%;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -9,6 +11,8 @@
 	margin: 0;
 	padding: 0;
 }
+
+// Web First Design
 
 body {
 	font-size: 1.6rem;
@@ -63,6 +67,12 @@ main {
 	display: grid;
 	grid-template-columns: 50% 50%;
 
+	@include maxWidth(992px) {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
 	// Project - Left column
 	.project {
 		display: flex;
@@ -75,11 +85,19 @@ main {
 			font-size: 3.6rem;
 			color: white;
 			font-weight: 600;
+
+			@include maxWidth(400px) {
+				font-size: 3.2rem;
+			}
 		}
 
 		&__subheader {
 			color: $secondary-color-2;
 			margin: 0.5rem 0 3rem 0;
+
+			@include maxWidth(400px) {
+				font-size: 1.4rem;
+			}
 		}
 
 		// Search form
@@ -89,6 +107,10 @@ main {
 			border-radius: 2rem;
 			margin-bottom: 5rem;
 			max-width: 34rem;
+
+			@include maxWidth(400px) {
+				max-width: 29.5rem;
+			}
 
 			form {
 				display: flex;
@@ -132,16 +154,18 @@ main {
 			}
 
 			.list {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
+				display: grid;
+				grid-template-columns: auto auto auto;
+
+				@include maxWidth(400px) {
+					grid-template-columns: 15rem 15rem;
+				}
 			}
 		}
 	}
 
-	// Card - Left column
+	// Project Card - Left column
 	.card {
-		width: 33%;
 		margin-bottom: 1.8rem;
 
 		#card--active {
@@ -229,7 +253,7 @@ main {
 		right: 0;
 		margin: 1.5rem;
 		padding: 3.6rem;
-		width: calc(50vw - 1.5rem);
+		max-width: calc(50vw - 1.5rem);
 		min-height: calc(100vh - 3rem);
 		border-radius: 1.6rem;
 
@@ -237,13 +261,36 @@ main {
 		flex-direction: column;
 		flex-wrap: wrap;
 
+		@include maxWidth(992px) {
+			position: relative;
+			margin: 0 auto;
+			max-width: 90vw;
+		}
+
+		@include maxWidth(550px) {
+			padding: 3.6rem 1.5rem;
+			margin: 0;
+		}
+
+		@include maxWidth(445px) {
+			max-width: 87.5vw;
+		}
+
 		// Task heading
 		&__heading {
 			display: flex;
 			flex-wrap: wrap;
 
+			@include maxWidth(550px) {
+				flex-direction: column-reverse;
+			}
+
 			&__header {
 				width: 65%;
+
+				@include maxWidth(550px) {
+					width: auto;
+				}
 
 				p {
 					margin-top: 1.4rem;
@@ -256,6 +303,11 @@ main {
 				width: 35%;
 				text-align: right;
 				position: relative;
+
+				@include maxWidth(550px) {
+					width: auto;
+					margin-bottom: 1.5rem;
+				}
 
 				.profile {
 					display: inline-block;
@@ -331,6 +383,11 @@ main {
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 1.5rem;
+			position: relative;
+
+			@include maxWidth(550px) {
+				display: block;
+			}
 
 			.icons--approved {
 				background-color: $approved;
@@ -339,6 +396,10 @@ main {
 				padding: 0.5rem;
 				margin-right: 1.5rem;
 				color: white;
+
+				@include maxWidth(550px) {
+					display: inline-block;
+				}
 			}
 
 			.icons--normal {
@@ -349,12 +410,23 @@ main {
 				padding: 0.5rem;
 				margin-right: 1.5rem;
 				color: white;
+				height: 2.6rem;
+
+				@include maxWidth(550px) {
+					display: inline-block;
+				}
 			}
 
 			p {
 				margin-top: 0.5rem;
 				color: $main-color;
 				font-size: 1.2rem;
+
+				@include maxWidth(550px) {
+					display: inline-block;
+					position: absolute;
+					margin-top: 0.5rem;
+				}
 			}
 
 			&__status {
@@ -364,6 +436,16 @@ main {
 				font-weight: bold;
 				text-align: center;
 				border-radius: 1.5rem;
+
+				@include maxWidth(550px) {
+					margin: 0 auto 1rem 4.6rem;
+					padding: 0.5rem 0;
+
+					p {
+						position: relative;
+						margin-top: 0;
+					}
+				}
 
 				&#approved {
 					background-color: $approved-bg;
@@ -386,6 +468,10 @@ main {
 
 					p {
 						color: $review;
+					}
+
+					@include maxWidth(370px) {
+						margin-top: 1.6rem;
 					}
 				}
 
@@ -410,6 +496,10 @@ main {
 			color: white;
 			box-shadow: -1rem 1rem 2.5rem 0px rgba(137, 78, 198, 0.4);
 			cursor: pointer;
+
+			@include maxWidth(550px) {
+				margin-right: 1rem;
+			}
 		}
 	}
 }
