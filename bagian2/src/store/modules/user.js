@@ -10,6 +10,8 @@ const state = {
 	listUser: [],
 	newUsers: [],
 	userProfile: [],
+	deleted: false,
+	edited: false,
 };
 
 const mutations = {
@@ -38,6 +40,16 @@ const mutations = {
 	storeUserProfile(state, userProfile) {
 		state.userProfile = userProfile;
 	},
+
+	// Is deleted?
+	isDeleted(state) {
+		state.isDeleted = true;
+	},
+
+	// Is Edited?
+	isEdited(state) {
+		state.isEdited = true;
+	},
 };
 
 const actions = {
@@ -46,6 +58,8 @@ const actions = {
 		axios
 			.post('/register', dataRegister)
 			.then(response => {
+				console.log(response);
+
 				alert('Register Success');
 
 				// Call storeUser mutations
@@ -63,7 +77,9 @@ const actions = {
 	login({ commit }, dataLogin) {
 		axios
 			.post('/login', dataLogin)
-			.then(() => {
+			.then(response => {
+				console.log(response);
+
 				alert('Login Success');
 
 				// Call isLogin mutations
@@ -82,6 +98,7 @@ const actions = {
 		axios
 			.get('/users?page=1')
 			.then(response => {
+				console.log(response);
 				commit('storeListUser', response.data);
 			})
 			.catch(error => console.log(error));
@@ -92,6 +109,7 @@ const actions = {
 		axios
 			.get(`/users/${id}`)
 			.then(response => {
+				console.log(response);
 				commit('storeUserProfile', response.data.data);
 			})
 			.catch(error => console.log(error));
@@ -102,6 +120,7 @@ const actions = {
 		axios
 			.post('/users', dataUser)
 			.then(response => {
+				console.log(response);
 				commit('storeNewUser', response.data);
 				console.log(state.newUsers);
 				alert('Success to add new user');
@@ -109,6 +128,32 @@ const actions = {
 			.catch(() => {
 				alert('Failed to add new user');
 			});
+	},
+
+	// Edit user by id
+	editUserById({ commit }, dataUser) {
+		axios
+			.put(`/users/${dataUser.id}`)
+			.then(response => {
+				console.log(response);
+				commit('isEdited');
+				alert('User has been edited');
+				router.replace('/users');
+			})
+			.catch(() => alert('User cannot be edited'));
+	},
+
+	// Delete user by id
+	deleteUserById({ commit }, id) {
+		axios
+			.delete(`/users/${id}`)
+			.then(response => {
+				console.log(response);
+				alert('User has been deleted');
+				commit('isDeleted');
+				router.replace('/users');
+			})
+			.catch(() => alert('User cannot be deleted'));
 	},
 };
 

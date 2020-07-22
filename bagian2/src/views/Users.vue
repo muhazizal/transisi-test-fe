@@ -10,9 +10,9 @@
 			<v-layout row wrap>
 				<v-flex xs12 sm6 md4 lg3 v-for="user in listUser" :key="user.id">
 					<v-card class="text-center ma-3">
-						<v-responsive class="pt-2">
+						<v-responsive class="pt-3">
 							<v-avatar size="100" class="grey lighten-2">
-								<img :src="user.avatar" :alt="`${user.first_name} avatar`" />
+								<img :src="user.avatar" :alt="`${user.first_name} avatar`" lazy-src="@/assets/dummy-profile.jpg" />
 							</v-avatar>
 						</v-responsive>
 						<v-card-text>
