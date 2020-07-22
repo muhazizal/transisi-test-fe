@@ -1,6 +1,7 @@
 import axios from '@/plugins/axios/axios-user';
 import router from '@/router/index';
 
+// User state
 const state = {
 	userId: null,
 	dataLogin: {
@@ -14,6 +15,7 @@ const state = {
 	edited: false,
 };
 
+// User mutations
 const mutations = {
 	// Store user state
 	storeUserId(state, userId) {
@@ -52,6 +54,7 @@ const mutations = {
 	},
 };
 
+// User actions
 const actions = {
 	// Register user
 	register({ commit }, dataRegister) {
@@ -65,7 +68,7 @@ const actions = {
 				// Call storeUser mutations
 				commit('storeUserId', response.data.id);
 
-				// Change route to signin
+				// Change route to login
 				router.replace('/login');
 			})
 			.catch(() => {
@@ -85,7 +88,7 @@ const actions = {
 				// Call isLogin mutations
 				commit('isLogin', dataLogin);
 
-				// Change route to home
+				// Change route to users
 				router.replace('/users');
 			})
 			.catch(() => {
@@ -99,6 +102,8 @@ const actions = {
 			.get('/users?page=1')
 			.then(response => {
 				console.log(response);
+
+				// Call storeListUser mutations
 				commit('storeListUser', response.data);
 			})
 			.catch(error => console.log(error));
@@ -110,6 +115,8 @@ const actions = {
 			.get(`/users/${id}`)
 			.then(response => {
 				console.log(response);
+
+				// Call storeUserProfile mutations
 				commit('storeUserProfile', response.data.data);
 			})
 			.catch(error => console.log(error));
@@ -121,8 +128,12 @@ const actions = {
 			.post('/users', dataUser)
 			.then(response => {
 				console.log(response);
+
+				// Call storeNewUser mutations
 				commit('storeNewUser', response.data);
+
 				console.log(state.newUsers);
+
 				alert('Success to add new user');
 			})
 			.catch(() => {
@@ -136,8 +147,13 @@ const actions = {
 			.put(`/users/${dataUser.id}`)
 			.then(response => {
 				console.log(response);
+
+				// Call isEdited? mutations
 				commit('isEdited');
+
 				alert('User has been edited');
+
+				// Change route to users
 				router.replace('/users');
 			})
 			.catch(() => alert('User cannot be edited'));
@@ -149,8 +165,13 @@ const actions = {
 			.delete(`/users/${id}`)
 			.then(response => {
 				console.log(response);
-				alert('User has been deleted');
+
+				// Call isDeleted? mutations
 				commit('isDeleted');
+
+				alert('User has been deleted');
+
+				// Change route to users
 				router.replace('/users');
 			})
 			.catch(() => alert('User cannot be deleted'));

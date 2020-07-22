@@ -129,7 +129,7 @@ export default {
 					password: this.password,
 				};
 
-				// Call actions register from store user
+				// Call actions register from store user actions
 				this.$store.dispatch('register', dataRegister);
 			}
 		},

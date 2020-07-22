@@ -30,6 +30,7 @@
 						@blur="$v.job.$touch()"
 					></v-text-field>
 
+					<!-- Button edit profile -->
 					<v-flex row justify-center class="mt-3">
 						<v-btn depressed class="success" @click="addUser" :disabled="$v.$invalid">
 							<span>Edit Profile</span>
@@ -91,7 +92,7 @@ export default {
 					id: this.$route.params.id,
 				};
 
-				// Call actions login from store user
+				// Edit profile by id from store user actions
 				this.$store.dispatch('editUserById', dataUser);
 
 				this.dialog = false;

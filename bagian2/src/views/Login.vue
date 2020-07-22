@@ -115,7 +115,7 @@ export default {
 					password: this.password,
 				};
 
-				// Call actions login from store user
+				// Call actions login from store user actions
 				this.$store.dispatch('login', dataLogin);
 			}
 		},

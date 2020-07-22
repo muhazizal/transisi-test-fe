@@ -30,6 +30,7 @@
 						@blur="$v.job.$touch()"
 					></v-text-field>
 
+					<!-- Button add new user -->
 					<v-flex row justify-center class="mt-3">
 						<v-btn depressed class="success" @click="addUser" :disabled="$v.$invalid">
 							<span>Add User</span>
@@ -90,7 +91,7 @@ export default {
 					job: this.job,
 				};
 
-				// Call actions login from store user
+				// Create new user from store user actions
 				this.$store.dispatch('createNewUser', dataUser);
 
 				this.dialog = false;
