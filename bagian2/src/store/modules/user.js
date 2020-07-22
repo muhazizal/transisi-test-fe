@@ -8,6 +8,8 @@ const state = {
 		password: null,
 	},
 	listUser: [],
+	newUsers: [],
+	userProfile: [],
 };
 
 const mutations = {
@@ -22,8 +24,19 @@ const mutations = {
 		state.dataLogin.password = dataLogin.password;
 	},
 
+	// Store list user
 	storeListUser(state, listUser) {
 		state.listUser = listUser;
+	},
+
+	// Store new users
+	storeNewUser(state, newUser) {
+		state.newUsers = newUser;
+	},
+
+	// Store user profile
+	storeUserProfile(state, userProfile) {
+		state.userProfile = userProfile;
 	},
 };
 
@@ -57,7 +70,7 @@ const actions = {
 				commit('isLogin', dataLogin);
 
 				// Change route to home
-				router.replace('/dashboard');
+				router.replace('/users');
 			})
 			.catch(() => {
 				alert('Login Failed');
@@ -73,6 +86,30 @@ const actions = {
 			})
 			.catch(error => console.log(error));
 	},
+
+	// Get user by id
+	getUserById({ commit }, id) {
+		axios
+			.get(`/users/${id}`)
+			.then(response => {
+				commit('storeUserProfile', response.data.data);
+			})
+			.catch(error => console.log(error));
+	},
+
+	// Create new user
+	createNewUser({ commit, state }, dataUser) {
+		axios
+			.post('/users', dataUser)
+			.then(response => {
+				commit('storeNewUser', response.data);
+				console.log(state.newUsers);
+				alert('Success to add new user');
+			})
+			.catch(() => {
+				alert('Failed to add new user');
+			});
+	},
 };
 
 const getters = {
@@ -84,6 +121,16 @@ const getters = {
 	// Get list user
 	listUser(state) {
 		return state.listUser;
+	},
+
+	// Get user by id
+	userProfile(state) {
+		return state.userProfile;
+	},
+
+	// Get new user data
+	newUsers(state) {
+		return state.newUsers;
 	},
 };
 
