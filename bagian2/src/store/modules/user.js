@@ -3,13 +3,27 @@ import router from '@/router/index';
 
 const state = {
 	userId: null,
-	register: false,
+	dataLogin: {
+		email: null,
+		password: null,
+	},
+	listUser: [],
 };
 
 const mutations = {
 	// Store user state
-	storeUser(state, userId) {
+	storeUserId(state, userId) {
 		state.userId = userId;
+	},
+
+	// Store data login
+	isLogin(state, dataLogin) {
+		state.dataLogin.email = dataLogin.email;
+		state.dataLogin.password = dataLogin.password;
+	},
+
+	storeListUser(state, listUser) {
+		state.listUser = listUser;
 	},
 };
 
@@ -19,52 +33,57 @@ const actions = {
 		axios
 			.post('/register', dataRegister)
 			.then(response => {
-				commit('storeUser', response.data.id);
+				alert('Register Success');
+
+				// Call storeUser mutations
+				commit('storeUserId', response.data.id);
 
 				// Change route to signin
 				router.replace('/login');
 			})
-			.catch(error => {
-				console.log(error);
+			.catch(() => {
+				alert('Register Failed');
 			});
 	},
 
 	// Login user
 	login({ commit }, dataLogin) {
 		axios
-			.get('login')
-			.then(response => {
-				// Init data response and user object
-				console.log(response);
-				const dataResponse = response.data;
-				const user = {
-					email: '',
-					password: '',
-				};
+			.post('/login', dataLogin)
+			.then(() => {
+				alert('Login Success');
 
-				// Loop for in data response
-				// Check the email and password is exist
-				for (let key in dataResponse) {
-					if (dataResponse[key].email === dataLogin.email && dataResponse[key].password === dataLogin.password) {
-						user.email = dataResponse[key].email;
-						user.password = dataResponse[key].password;
-					}
-				}
-
-				// Call storeUser mutations
-				commit('storeUser', user);
+				// Call isLogin mutations
+				commit('isLogin', dataLogin);
 
 				// Change route to home
 				router.replace('/dashboard');
+			})
+			.catch(() => {
+				alert('Login Failed');
+			});
+	},
+
+	// Get list user
+	getListUser({ commit }) {
+		axios
+			.get('/users?page=1')
+			.then(response => {
+				commit('storeListUser', response.data);
 			})
 			.catch(error => console.log(error));
 	},
 };
 
 const getters = {
-	// Get user data
+	// Get user id
 	user(state) {
 		return state.userId;
+	},
+
+	// Get list user
+	listUser(state) {
+		return state.listUser;
 	},
 };
 
