@@ -182,7 +182,6 @@ main .project__category .list {
 main .card {
   width: 33%;
   margin-bottom: 1.8rem;
-  cursor: pointer;
 }
 
 main .card #card--active {
@@ -212,6 +211,7 @@ main .card__header {
   color: white;
   background-color: #3b3f54;
   border-radius: 1.5rem;
+  cursor: pointer;
 }
 
 main .card__header span {

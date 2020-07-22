@@ -1,6 +1,5 @@
 @import 'variable';
-
-:root {
+@import 'mixins': root {
 	font-size: 62.5%;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -144,7 +143,6 @@ main {
 	.card {
 		width: 33%;
 		margin-bottom: 1.8rem;
-		cursor: pointer;
 
 		#card--active {
 			border: 0.2rem solid $main-color;
@@ -173,6 +171,7 @@ main {
 			color: white;
 			background-color: $secondary-color-1;
 			border-radius: 1.5rem;
+			cursor: pointer;
 
 			span {
 				position: absolute;
